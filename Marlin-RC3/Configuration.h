@@ -75,7 +75,7 @@ Here are some standard links for getting your machine calibrated:
 
 // Optional custom name for your RepStrap or other custom machine
 // Displayed in the LCD "Ready" message
-#define CUSTOM_MACHINE_NAME "Printer"
+#define CUSTOM_MACHINE_NAME "Mini Kossel"
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
@@ -353,7 +353,7 @@ Here are some standard links for getting your machine calibrated:
   #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET)
 
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-  #define DELTA_PRINTABLE_RADIUS 96
+  #define DELTA_PRINTABLE_RADIUS 95
 
 #endif
 
@@ -513,7 +513,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
   #if ENABLED(AUTO_BED_LEVELING_GRID)
 
     // set the rectangle in which to probe
-    #define DELTA_PROBABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 22)
+    #define DELTA_PROBABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 23)
     #define LEFT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
     #define RIGHT_PROBE_BED_POSITION DELTA_PROBABLE_RADIUS
     #define FRONT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
@@ -542,17 +542,17 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 
   // Offsets to the Z probe relative to the nozzle tip.
   // X and Y offsets must be integers.
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -1.0    // Z probe to nozzle X offset: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER 21.0   // Z probe to nozzle Y offset: -front +behind
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -3.8    // Z probe to nozzle X offset: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 25.5   // Z probe to nozzle Y offset: -front +behind
   //#define Y_PROBE_OFFSET_FROM_EXTRUDER 10.0   // Z probe to nozzle Y offset: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -2.8  // Z probe to nozzle Z offset: -below (always!)
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -5.7  // Z probe to nozzle Z offset: -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 15      // (in mm) Raise Z axis before homing (G28) for Z probe clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case.
 
   #define XY_TRAVEL_SPEED 4000         // X and Y axis travel speed between probes, in mm/min.
   
-  #define Z_RAISE_BEFORE_PROBING 15   // How much the Z axis will be raised before traveling to the first probing point.
+  #define Z_RAISE_BEFORE_PROBING 30   // How much the Z axis will be raised before traveling to the first probing point.
   #define Z_RAISE_BETWEEN_PROBINGS 2  // How much the Z axis will be raised when traveling from between next probing points
   #define Z_RAISE_AFTER_PROBING 50    // How much the Z axis will be raised after the last probing point.
 
@@ -593,19 +593,19 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
     //#define Z_PROBE_ALLEN_KEY_STOW_3_FEEDRATE HOMING_FEEDRATE_XYZ
 
     // Kossel Mini
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_X 26.0
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y 75.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_X 25.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y 82.0
     #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Z 50.0
     #define Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE XY_TRAVEL_SPEED
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_X 17.0
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y Z_PROBE_ALLEN_KEY_DEPLOY_1_Y
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_X 6.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y 75.0
     #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Z Z_PROBE_ALLEN_KEY_DEPLOY_1_Z
     #define Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE (XY_TRAVEL_SPEED/10)
 
-    #define Z_PROBE_ALLEN_KEY_STOW_DEPTH 17
+    #define Z_PROBE_ALLEN_KEY_STOW_DEPTH 18
     // Move the probe into position
-    #define Z_PROBE_ALLEN_KEY_STOW_1_X -55.0
-    #define Z_PROBE_ALLEN_KEY_STOW_1_Y 61.0
+    #define Z_PROBE_ALLEN_KEY_STOW_1_X 62.0
+    #define Z_PROBE_ALLEN_KEY_STOW_1_Y 50.0
     #define Z_PROBE_ALLEN_KEY_STOW_1_Z 31.0
     #define Z_PROBE_ALLEN_KEY_STOW_1_FEEDRATE XY_TRAVEL_SPEED
     // Move the nozzle down further to push the probe into retracted position.
@@ -710,7 +710,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
   // Tete 1 #define MANUAL_Z_HOME_POS 196.1 // For delta: Distance between nozzle and print surface after homing.
-  #define MANUAL_Z_HOME_POS 188.0 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 187.9 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 // @section movement
@@ -945,7 +945,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 // leaving it undefined or defining as 0 will disable the servo subsystem
 // If unsure, leave commented / disabled
 //
-#define NUM_SERVOS 4 // Servo index starts with 0 for M280 command
+//#define NUM_SERVOS 0 // Servo index starts with 0 for M280 command
 
 // Servo Endstops
 //
@@ -954,8 +954,8 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 //
 //#define X_ENDSTOP_SERVO_NR 1
 //#define Y_ENDSTOP_SERVO_NR 2
-#define Z_ENDSTOP_SERVO_NR 0
-#define SERVO_ENDSTOP_ANGLES {{0,0}, {0,0}, {70,0}} // X,Y,Z Axis Extend and Retract angles
+//#define Z_ENDSTOP_SERVO_NR 0
+//#define SERVO_ENDSTOP_ANGLES {{0,0}, {0,0}, {70,0}} // X,Y,Z Axis Extend and Retract angles
 
 // Servo deactivation
 //
