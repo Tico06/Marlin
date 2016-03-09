@@ -228,11 +228,15 @@ Here are some standard links for getting your machine calibrated:
   //#define  DEFAULT_Ki 2.57
   //#define  DEFAULT_Kd 72.32
 
-    // Valeurs mesurees sur Tete 1
-	#define  DEFAULT_Kp 21.36
-	#define  DEFAULT_Ki 1.44
-	#define  DEFAULT_Kd 79.28
+    // Valeurs mesurees sur Tete 1 Précédentes
+//	#define  DEFAULT_Kp 21.36
+//	#define  DEFAULT_Ki 1.44
+//	#define  DEFAULT_Kd 79.28
 
+    // AVec double ventilo
+    #define  DEFAULT_Kp 24.25
+    #define  DEFAULT_Ki 1.56
+    #define  DEFAULT_Kd 94.17
 
 #endif // PIDTEMP
 
@@ -490,7 +494,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 
 
 #define AUTO_BED_LEVELING_FEATURE // Delete the comment to enable (remove // at the start of the line)
-#define DEBUG_LEVELING_FEATURE
+//#define DEBUG_LEVELING_FEATURE
 //#define Z_MIN_PROBE_REPEATABILITY_TEST  // If not commented out, Z-Probe Repeatability test will be included if Auto Bed Leveling is Enabled.
 
 #if ENABLED(AUTO_BED_LEVELING_FEATURE)
@@ -513,7 +517,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
   #if ENABLED(AUTO_BED_LEVELING_GRID)
 
     // set the rectangle in which to probe
-    #define DELTA_PROBABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 23)
+    #define DELTA_PROBABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 17)
     #define LEFT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
     #define RIGHT_PROBE_BED_POSITION DELTA_PROBABLE_RADIUS
     #define FRONT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
@@ -525,7 +529,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
     // Compensate by interpolating between the nearest four Z probe values for each point.
     // Useful for deltas where the print surface may appear like a bowl or dome shape.
     // Works best with ACCURATE_BED_LEVELING_POINTS 5 or higher.
-    #define AUTO_BED_LEVELING_GRID_POINTS 9
+    #define AUTO_BED_LEVELING_GRID_POINTS 10
 
   #else  // !AUTO_BED_LEVELING_GRID
 
@@ -542,17 +546,17 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 
   // Offsets to the Z probe relative to the nozzle tip.
   // X and Y offsets must be integers.
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -3.8    // Z probe to nozzle X offset: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER 25.5   // Z probe to nozzle Y offset: -front +behind
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 1.7    // Z probe to nozzle X offset: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 16.4   // Z probe to nozzle Y offset: -front +behind
   //#define Y_PROBE_OFFSET_FROM_EXTRUDER 10.0   // Z probe to nozzle Y offset: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -5.7  // Z probe to nozzle Z offset: -below (always!)
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -6.9  // Z probe to nozzle Z offset: -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 15      // (in mm) Raise Z axis before homing (G28) for Z probe clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case.
 
   #define XY_TRAVEL_SPEED 4000         // X and Y axis travel speed between probes, in mm/min.
   
-  #define Z_RAISE_BEFORE_PROBING 30   // How much the Z axis will be raised before traveling to the first probing point.
+  #define Z_RAISE_BEFORE_PROBING 25   // How much the Z axis will be raised before traveling to the first probing point.
   #define Z_RAISE_BETWEEN_PROBINGS 2  // How much the Z axis will be raised when traveling from between next probing points
   #define Z_RAISE_AFTER_PROBING 50    // How much the Z axis will be raised after the last probing point.
 
@@ -593,20 +597,20 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
     //#define Z_PROBE_ALLEN_KEY_STOW_3_FEEDRATE HOMING_FEEDRATE_XYZ
 
     // Kossel Mini
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_X 25.0
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y 82.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_X 27.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y 85.0
     #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Z 50.0
     #define Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE XY_TRAVEL_SPEED
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_X 6.0
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y 75.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_X 9.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y Z_PROBE_ALLEN_KEY_DEPLOY_1_Y
     #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Z Z_PROBE_ALLEN_KEY_DEPLOY_1_Z
     #define Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE (XY_TRAVEL_SPEED/10)
 
-    #define Z_PROBE_ALLEN_KEY_STOW_DEPTH 18
+    #define Z_PROBE_ALLEN_KEY_STOW_DEPTH 20
     // Move the probe into position
     #define Z_PROBE_ALLEN_KEY_STOW_1_X 62.0
-    #define Z_PROBE_ALLEN_KEY_STOW_1_Y 50.0
-    #define Z_PROBE_ALLEN_KEY_STOW_1_Z 31.0
+    #define Z_PROBE_ALLEN_KEY_STOW_1_Y 59.6
+    #define Z_PROBE_ALLEN_KEY_STOW_1_Z 34
     #define Z_PROBE_ALLEN_KEY_STOW_1_FEEDRATE XY_TRAVEL_SPEED
     // Move the nozzle down further to push the probe into retracted position.
     #define Z_PROBE_ALLEN_KEY_STOW_2_X  Z_PROBE_ALLEN_KEY_STOW_1_X
@@ -710,7 +714,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
   // Tete 1 #define MANUAL_Z_HOME_POS 196.1 // For delta: Distance between nozzle and print surface after homing.
-  #define MANUAL_Z_HOME_POS 187.9 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 187.8 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 // @section movement
