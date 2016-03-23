@@ -549,7 +549,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
   #define X_PROBE_OFFSET_FROM_EXTRUDER 1.7    // Z probe to nozzle X offset: -left  +right
   #define Y_PROBE_OFFSET_FROM_EXTRUDER 16.4   // Z probe to nozzle Y offset: -front +behind
   //#define Y_PROBE_OFFSET_FROM_EXTRUDER 10.0   // Z probe to nozzle Y offset: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -6.9  // Z probe to nozzle Z offset: -below (always!)
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -6.4  // Z probe to nozzle Z offset: -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 15      // (in mm) Raise Z axis before homing (G28) for Z probe clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case.
@@ -598,11 +598,12 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 
     // Kossel Mini
     #define Z_PROBE_ALLEN_KEY_DEPLOY_1_X 27.0
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y 85.0
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y 95.0
     #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Z 50.0
     #define Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE XY_TRAVEL_SPEED
     #define Z_PROBE_ALLEN_KEY_DEPLOY_2_X 9.0
-    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y Z_PROBE_ALLEN_KEY_DEPLOY_1_Y
+//  #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y Z_PROBE_ALLEN_KEY_DEPLOY_1_Y
+    #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y 80
     #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Z Z_PROBE_ALLEN_KEY_DEPLOY_1_Z
     #define Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE (XY_TRAVEL_SPEED/10)
 
@@ -714,7 +715,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
   // Tete 1 #define MANUAL_Z_HOME_POS 196.1 // For delta: Distance between nozzle and print surface after homing.
-  #define MANUAL_Z_HOME_POS 187.8 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 189.6 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 // @section movement
